@@ -1,3 +1,7 @@
 [submodule "cjson"]
 	path = src
 	url = https://github.com/openresty/lua-cjson
+[submodule "cmake-lua"]
+	path = externals/lua
+	url = https://github.com/qlua-project/cmake-lua-win64
+	branch = v5.5
