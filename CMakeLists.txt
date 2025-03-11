@@ -3,8 +3,8 @@
 #       Unix: export LUA_DIR=/home/user/pkg
 #       Windows: set LUA_DIR=c:\lua51
 
+cmake_minimum_required(VERSION 3.30)
 project(lua-cjson C)
-cmake_minimum_required(VERSION 2.8.12)
 
 option(USE_INTERNAL_FPCONV "Use internal strtod() / g_fmt() code for performance")
 option(MULTIPLE_THREADS "Support multi-threaded apps with internal fpconv - recommended" ON)
@@ -16,15 +16,19 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 find_package(Lua REQUIRED)
+message( STATUS "Lua Version ${LUA_VERSION_STRING}")
+message( STATUS "Lua Includes ${LUA_INCLUDE_DIR}")
+message( STATUS "Lua Library ${LUA_LIBRARY}")
+message( STATUS "Lua Libraries ${LUA_LIBRARIES}")
 include_directories(${LUA_INCLUDE_DIR})
 
 if(NOT USE_INTERNAL_FPCONV)
     # Use libc number conversion routines (strtod(), sprintf())
-    set(FPCONV_SOURCES fpconv.c)
+    set(FPCONV_SOURCES src/fpconv.c)
 else()
     # Use internal number conversion routines
     add_definitions(-DUSE_INTERNAL_FPCONV)
-    set(FPCONV_SOURCES g_fmt.c dtoa.c)
+    set(FPCONV_SOURCES src/g_fmt.c src/dtoa.c)
 
     include(TestBigEndian)
     TEST_BIG_ENDIAN(IEEE_BIG_ENDIAN)
@@ -45,7 +49,7 @@ endif()
 
 # Handle platforms missing isinf() macro (Eg, some Solaris systems).
 include(CheckSymbolExists)
-CHECK_SYMBOL_EXISTS(isinf math.h HAVE_ISINF)
+CHECK_SYMBOL_EXISTS(isinf src/math.h HAVE_ISINF)
 if(NOT HAVE_ISINF)
     add_definitions(-DUSE_INTERNAL_ISINF)
 endif()
@@ -71,13 +75,19 @@ endif()
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
     add_definitions(-Dinline=__inline)
-    add_definitions(-Dsnprintf=_snprintf)
+    # add_definitions(-Dsnprintf=_snprintf)  # fatal error C1189: Macro definition of snprintf conflicts with Standard Library
     add_definitions(-Dstrncasecmp=_strnicmp)
 endif()
 
-add_library(cjson MODULE lua_cjson.c strbuf.c ${FPCONV_SOURCES})
+message(STATUS "cjson MODULE SRC src/lua_cjson.c src/strbuf.c ${FPCONV_SOURCES}")
+message(STATUS "cjson MODULE LINK ${_MODULE_LINK}")
+message(STATUS "cjson DESTINATION ${_lua_module_dir}")
+
+add_library(cjson MODULE src/lua_cjson.c src/strbuf.c ${FPCONV_SOURCES})
 set_target_properties(cjson PROPERTIES PREFIX "")
 target_link_libraries(cjson ${_MODULE_LINK})
-install(TARGETS cjson DESTINATION "${_lua_module_dir}")
+
+install(TARGETS cjson LIBRARY DESTINATION "bin")
+install (DIRECTORY src/lua/cjson DESTINATION "bin" )
 
 # vi:ai et sw=4 ts=4:
