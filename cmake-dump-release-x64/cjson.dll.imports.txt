@@ -1,0 +1,166 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34808.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\cmake-build-release-x64\cjson.dll
+
+File Type: DLL
+
+  Section contains the following imports:
+
+    lua54.dll
+             180006188 Import Address Table
+             180007978 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          76 lua_setmetatable
+                          5F lua_pushstring
+                          58 lua_pushcclosure
+                          57 lua_pushboolean
+                          5B lua_pushlightuserdata
+                          70 lua_setfield
+                          65 lua_rawgeti
+                          45 lua_getmetatable
+                          54 lua_newuserdatauv
+                          3C lua_getfield
+                          41 lua_geti
+                          64 lua_rawget
+                          78 lua_settop
+                          26 luaL_setfuncs
+                          17 luaL_len
+                           C luaL_checkoption
+                          11 luaL_error
+                           9 luaL_checkinteger
+                           A luaL_checklstring
+                           4 luaL_argerror
+                          14 luaL_getmetafield
+                          69 lua_rawseti
+                          55 lua_next
+                          56 lua_pcallk
+                          37 lua_createtable
+                          68 lua_rawset
+                          31 lua_callk
+                          5C lua_pushlstring
+                          5A lua_pushinteger
+                          5E lua_pushnumber
+                          5D lua_pushnil
+                          63 lua_rawequal
+                          85 lua_touserdata
+                          81 lua_tolstring
+                          7D lua_toboolean
+                          80 lua_tointegerx
+                          82 lua_tonumberx
+                          87 lua_typename
+                          86 lua_type
+                          4B lua_isinteger
+                          32 lua_checkstack
+                          6D lua_rotate
+                          61 lua_pushvalue
+                          48 lua_gettop
+
+    VCRUNTIME140.dll
+             180006080 Import Address Table
+             180007870 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          25 __std_type_info_destroy_list
+                           8 __C_specific_handler
+                          40 strchr
+                          3E memset
+                          3C memcpy
+
+    api-ms-win-crt-string-l1-1-0.dll
+             180006170 Import Address Table
+             180007960 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          8E strncmp
+                          34 _strnicmp
+
+    api-ms-win-crt-stdio-l1-1-0.dll
+             180006148 Import Address Table
+             180007938 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                           F __stdio_common_vsprintf_s
+                           D __stdio_common_vsprintf
+                           0 __acrt_iob_func
+                           3 __stdio_common_vfprintf
+
+    api-ms-win-crt-runtime-l1-1-0.dll
+             1800060F8 Import Address Table
+             1800078E8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          54 abort
+                          16 _cexit
+                          22 _execute_onexit_table
+                          34 _initialize_onexit_table
+                          33 _initialize_narrow_environment
+                          18 _configure_narrow_argv
+                          3F _seh_filter_dll
+                          37 _initterm_e
+                          36 _initterm
+
+    api-ms-win-crt-convert-l1-1-0.dll
+             1800060B0 Import Address Table
+             1800078A0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          5E strtod
+                          63 strtoll
+
+    api-ms-win-crt-math-l1-1-0.dll
+             1800060E8 Import Address Table
+             1800078D8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          BE floor
+
+    api-ms-win-crt-heap-l1-1-0.dll
+             1800060C8 Import Address Table
+             1800078B8 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          18 free
+                          1A realloc
+                          19 malloc
+
+    KERNEL32.dll
+             180006000 Import Address Table
+             1800077F0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         45B QueryPerformanceCounter
+                         38E IsDebuggerPresent
+                         378 InitializeSListHead
+                         125 DisableThreadLibraryCalls
+                         2F8 GetSystemTimeAsFileTime
+                         226 GetCurrentThreadId
+                         222 GetCurrentProcessId
+                         4DF RtlCaptureContext
+                         395 IsProcessorFeaturePresent
+                         5AC TerminateProcess
+                         221 GetCurrentProcess
+                         58D SetUnhandledExceptionFilter
+                         5CE UnhandledExceptionFilter
+                         4EE RtlVirtualUnwind
+                         4E7 RtlLookupFunctionEntry
+
+  Summary
+
+        1000 .data
+        1000 .pdata
+        3000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        5000 .text
