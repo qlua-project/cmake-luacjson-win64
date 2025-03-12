@@ -34,6 +34,8 @@ if /I "%1"=="/DEBUG" (
 )
 set INSTALL_DIR=%~dp0
 
+set LUA_DIR=%~dp0externals/lua
+
 pushd %~dp0
 
 :CONFIG
