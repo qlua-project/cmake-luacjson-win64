@@ -1,3 +1,9 @@
+cjson
+
+https://github.com/openresty/lua-cjson (forked from mpx/lua-cjson) + 85 commits
+https://github.com/hishamhm/lua-cjson (forked from openresty/lua-cjson) + 24 commits
+
+- - - -
 
 https://www.kyne.com.au/~mark/software/lua-json-performance.html
 
